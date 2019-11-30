@@ -13,14 +13,30 @@ import org.springframework.web.bind.annotation.RequestMapping;
  *
  * @author ssoch
  */
-
 @Controller
 public class QAController {
-    
-    @RequestMapping("show")
-    public String show(Model model) {
-        model.addAttribute("question", "Drzwi");
-        model.addAttribute("answer", "Door");
+
+    private LessonManager lessonManager = new LessonManager();
+    private FlashCard flashCard;
+            
+    @RequestMapping("showQuestion")
+    public String showQuestion(Model model) {
+        model.addAttribute("question", flashCard.getQuestion());
+        model.addAttribute("answer", "................");
+        return "questionandanswer";
+    }
+
+    @RequestMapping("showAnswer")
+    public String showAnswer(Model model) {
+        model.addAttribute("question", flashCard.getQuestion());
+        model.addAttribute("answer", flashCard.getAnswer());
+        return "questionandanswer";
+    }
+
+    @RequestMapping("nextFlashCard")
+    public String nextFlashCard(Model model) {
+        flashCard = lessonManager.getNextFlashCard();
+        //TODO - co to ma wlasciwie robic
         return "questionandanswer";
     }
 }
