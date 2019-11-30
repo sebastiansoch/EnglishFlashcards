@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.gmail.soch.sebastian.englishflashcards;
+package com.gmail.soch.sebastian.englishflashcards.logic;
 
 import com.gmail.soch.sebastian.englishflashcards.data.FlashCardDTO;
 import com.gmail.soch.sebastian.englishflashcards.data.LessonsDAOIntf;
@@ -29,7 +29,7 @@ public class LessonManager {
     @Qualifier ("fake")
     private LessonsDAOIntf lessonsDAO;
 
-    String getNextQuestion() {
+    public String getNextQuestion() {
         if (flashCards == null) {
             prepareLesson();
         }
@@ -38,11 +38,11 @@ public class LessonManager {
         return currentFlashCard.getQuestion();
     }
 
-    String getQuestion() {
+    public String getQuestion() {
         return currentFlashCard.getQuestion();
     }
 
-    String getAnswer() {
+    public String getAnswer() {
         return currentFlashCard.getAnswer();
     }
 

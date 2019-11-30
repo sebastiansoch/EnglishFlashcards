@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.gmail.soch.sebastian.englishflashcards;
+package com.gmail.soch.sebastian.englishflashcards.logic;
 
 /**
  *
  * @author ssoch
  */
-class FlashCard {
+public class FlashCard {
 
     private final String question;
     private final String answer;
 
-    FlashCard(String question, String answer) {
+    public FlashCard(String question, String answer) {
         this.question = question;
         this.answer = answer;
     }

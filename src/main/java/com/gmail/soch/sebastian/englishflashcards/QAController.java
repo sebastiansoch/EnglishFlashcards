@@ -5,6 +5,7 @@
  */
 package com.gmail.soch.sebastian.englishflashcards;
 
+import com.gmail.soch.sebastian.englishflashcards.logic.LessonManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
