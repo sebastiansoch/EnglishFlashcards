@@ -10,22 +10,24 @@ import com.gmail.soch.sebastian.englishflashcards.data.LessonsDAOFake;
 import com.gmail.soch.sebastian.englishflashcards.data.LessonsDAOIntf;
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author ssoch
  */
+
+@Component
 public class LessonManager {
 
     private List<FlashCard> flashCards;
     private static int flashCardIdx = 0;
     
-    
+    @Autowired
+    @Qualifier ("fake")
     private LessonsDAOIntf lessonsDAO;
-
-    public LessonManager() {
-        lessonsDAO = new LessonsDAOFake();
-    }
 
     FlashCard getNextFlashCard() {
         if (flashCards == null) {

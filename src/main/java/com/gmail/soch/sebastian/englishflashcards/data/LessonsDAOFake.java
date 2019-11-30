@@ -7,11 +7,13 @@ package com.gmail.soch.sebastian.englishflashcards.data;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author ssoch
  */
+@Component (value = "fake")
 public class LessonsDAOFake implements LessonsDAOIntf{
 
     @Override
