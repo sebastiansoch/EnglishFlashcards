@@ -6,7 +6,6 @@
 package com.gmail.soch.sebastian.englishflashcards;
 
 import com.gmail.soch.sebastian.englishflashcards.data.FlashCardDTO;
-import com.gmail.soch.sebastian.englishflashcards.data.LessonsDAOFake;
 import com.gmail.soch.sebastian.englishflashcards.data.LessonsDAOIntf;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,19 +21,29 @@ import org.springframework.stereotype.Component;
 @Component
 public class LessonManager {
 
-    private List<FlashCard> flashCards;
     private static int flashCardIdx = 0;
+    private List<FlashCard> flashCards;
+    private FlashCard currentFlashCard;
     
     @Autowired
     @Qualifier ("fake")
     private LessonsDAOIntf lessonsDAO;
 
-    FlashCard getNextFlashCard() {
+    String getNextQuestion() {
         if (flashCards == null) {
             prepareLesson();
         }
+        currentFlashCard = flashCards.get(flashCardIdx++);
 
-        return flashCards.get(flashCardIdx++);
+        return currentFlashCard.getQuestion();
+    }
+
+    String getQuestion() {
+        return currentFlashCard.getQuestion();
+    }
+
+    String getAnswer() {
+        return currentFlashCard.getAnswer();
     }
 
     private void prepareLesson() {
@@ -45,5 +54,4 @@ public class LessonManager {
             flashCards.add(new FlashCard(flashCardDTO.getQuestion(), flashCardDTO.getAnswer()));
         }
     }
-
 }
