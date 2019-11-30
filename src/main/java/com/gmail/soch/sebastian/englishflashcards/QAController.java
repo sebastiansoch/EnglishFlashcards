@@ -25,6 +25,7 @@ public class QAController {
     public String showQuestion(Model model) {
         model.addAttribute("question", lessonManager.getNextQuestion());
         model.addAttribute("answer", "................");
+        model.addAttribute("button_text", "Answer");
         return "questionandanswer";
     }
 
@@ -32,6 +33,7 @@ public class QAController {
     public String showAnswer(Model model) {
         model.addAttribute("question", lessonManager.getQuestion());
         model.addAttribute("answer", lessonManager.getAnswer());
+        model.addAttribute("button_text", "NextQuestion");
         return "questionandanswer";
     }
 }
