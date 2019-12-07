@@ -26,7 +26,7 @@ public class LessonManager {
     private FlashCard currentFlashCard;
     
     @Autowired
-    @Qualifier ("fake")
+    @Qualifier ("db")
     private LessonsDAOIntf lessonsDAO;
 
     public String getNextQuestion() {
